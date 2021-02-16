@@ -1,0 +1,19 @@
+version: 1
+applications:
+  - appRoot: amplify_redirect_issue-master
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - yarn install
+        build:
+          commands:
+            - echo ------------- Build Web App -------------
+            - yarn run build
+      artifacts:
+        baseDirectory: public
+        files:
+          - "**/*"
+      cache:
+        paths:
+          - node_modules/**/*
